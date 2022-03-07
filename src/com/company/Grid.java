@@ -7,8 +7,12 @@ package com.company;
 //TODO Create an alternative constructor with an integer parameter. The grid is initialised so all elements are set to this value.
 import java.util.Scanner;
 public class Grid {
-  // this isn't useful: public int[][] myGrid= new myGrid [10][10];
+    // this isn't useful: public int[][] myGrid= new myGrid [10][10];
     public void myGrid() {
+        final int height = 10;
+        final int width = 10;
+        final Integer[][] array;
+
             for (int i = 1; i <= 10; i++) {
                 for (int j = 1; j <=10; j++) {
                     System.out.print("▢");
@@ -44,12 +48,26 @@ public class Grid {
             arr[i] = temp;
         }
     }
+    protected Grid(int width, int height) {
+        Integer[][] array = new Integer[width][height];
+    }
+
+    //better to use this rather than the printArray method
+    public void display() {
+        for(Integer[] integers : array){
+            for(Integer integer:integers) {
+                System.out.println(integer+"");
+            }
+            System.out.println();
+        }
+    }
 //printing array
   public static void printArray(int arr[]) {
         int n=arr.length;
         for(int i=0;i<n;i++)
             System.out.print(arr[i]+" ");
         System.out.println();
+
     }
 //tests the array above
 
